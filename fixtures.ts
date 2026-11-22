@@ -1,15 +1,22 @@
 import { test as base } from '@playwright/test'
 import { LoginPage } from './pages/LoginPage'
 import { ProductsPage } from './pages/ProductsPage'
+import { CartPage } from './pages/CartPage'
+
+import { CheckoutPage } from './pages/CheckoutPage'
 
 type Pages = {
   loginPage: LoginPage,
-  productsPage: ProductsPage
+  productsPage: ProductsPage,
+  cartPage: CartPage,
+  checkoutPage: CheckoutPage
 }
 
 export const test = base.extend<Pages>({
   loginPage: async({ page }, use) => use(new LoginPage(page)),
-  productsPage: async({ page }, use) => use(new ProductsPage(page))
+  productsPage: async({ page }, use) => use(new ProductsPage(page)),
+  cartPage: async({ page }, use) => use(new CartPage(page)),
+  checkoutPage: async({ page }, use) => use(new CheckoutPage(page)),
 })
 
 export { expect } from '@playwright/test'
