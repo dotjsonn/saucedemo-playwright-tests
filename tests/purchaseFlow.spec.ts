@@ -1,7 +1,5 @@
 import { test, expect } from '../fixtures'
 
-test.use({ storageState: { cookies: [], origins: [] } })
-
 
 test('Full Purchase Flow', async ({ loginPage, productsPage, cartPage, checkoutPage, page }) => {
   // Login

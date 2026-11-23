@@ -3,21 +3,22 @@
 End-to-end tests for [SauceDemo](https://www.saucedemo.com/) using Playwright and TypeScript.
 
 ## What's covered
+A single end-to-end spec (`tests/purchaseFlow.spec.ts`), split into `test.step`s:
 - **Login**: valid credentials
 - **Products**: page headers, inventory list, add to cart
-- **Purchase flow**: login → add items → cart → checkout → order complete
+- **Cart**: added items are listed
+- **Checkout**: fill info, review order, finish → order complete
 
 ## Tech & patterns
-- Playwright Test + TypeScript
+- Playwright Test + TypeScript (Chromium)
 - Page Object Model (`pages/`)
 - Custom fixtures (`fixtures.ts`)
-- Auth setup project reusing saved login state (`tests/auth.setup.ts`)
 - GitHub Actions CI with HTML report artifact
 
 ## Project structure
 ```
 pages/          Page objects (Login, Products, Cart, Checkout)
-tests/          Specs and auth setup
+tests/          Purchase flow spec
 fixtures.ts     Injects page objects into tests
 .github/        CI workflow
 ```
